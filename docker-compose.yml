@@ -5,32 +5,23 @@ services:
   plex-mount:
     #image: pknw1/pfs:final
     build: .
+    user: root
     container_name: plex-mount
     restart: always
     hostname: plex-mount
     privileged: true
-    dns:
-      - 8.8.8.8
-    networks:
-      - proxy
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /tmp:/tmp
       - ./config.json:/app/config.json
-      - /mnt/RS:/mnt:shared
+      - /mnt/RS:/mnt:rshared
     environment:
       - TZ=Europe/London
-      - VIRTUAL_HOST=plex-mount.pknw1.co.uk
-      - VIRTUAL_PORT=80
-      - PUID=666
-      - PGID=666
+      - PUID=1000
+      - PGID=1000
     cap_add:
       - SYS_ADMIN
+    security_opt:
+      - apparmor:unconfined
     devices:
-      - /dev/fuse
-
-networks:
-  proxy:
-    external:
-      name: proxy
-
+      - /dev/fuse:/dev/fuse:rwm
