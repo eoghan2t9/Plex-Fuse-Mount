@@ -5,7 +5,6 @@ services:
   plex-mount:
     #image: pknw1/pfs:final
     build: .
-    user: root
     container_name: plex-mount
     restart: always
     hostname: plex-mount
@@ -16,6 +15,7 @@ services:
       - ./config.json:/app/config.json
       - /mnt/RS:/mnt:rshared
     environment:
+      - USER=root
       - TZ=Europe/London
       - PUID=0
       - PGID=0
