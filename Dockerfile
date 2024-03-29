@@ -13,8 +13,10 @@ RUN dotnet restore "pfs.csproj"
 
 FROM build AS publish
 RUN dotnet publish ./pfs.csproj -c release -o /app/publish
+USER root
 
 FROM base AS final
+USER root
 RUN apt update && apt install -y libglibd-2.0-0 fuse
 WORKDIR /app
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
