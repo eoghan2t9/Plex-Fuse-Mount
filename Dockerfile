@@ -7,7 +7,6 @@ EXPOSE 443
 #FROM mcr.microsoft.com/dotnet/sdk:3.1-alpine AS build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-RUN groupadd -r root && useradd -r -g root root
 USER root
 COPY . .
 RUN dotnet restore "pfs.csproj"
