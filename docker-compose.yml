@@ -17,8 +17,8 @@ services:
       - /mnt/RS:/mnt:rshared
     environment:
       - TZ=Europe/London
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
     cap_add:
       - SYS_ADMIN
     security_opt:
