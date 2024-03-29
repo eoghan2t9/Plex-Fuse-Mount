@@ -1,0 +1,9 @@
+config.json
+yarn-error.log
+node_modules
+.vscode
+test
+bin
+obj
+.vs
+.idea
