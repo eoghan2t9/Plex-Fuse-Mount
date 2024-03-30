@@ -9,7 +9,6 @@ services:
     container_name: plex-mount
     user: 0:0
     restart: always
-    hostname: plex-mount
     privileged: true
     volumes:
       - type: volume
