@@ -12,10 +12,10 @@ services:
     hostname: plex-mount
     privileged: true
     volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /tmp:/tmp
-      - ./config.json:/app/config.json
-      - /mnt/RS:/mnt:rshared
+      - type: volume
+        source: /mnt/RS
+        target: /mnt
+        read_only: true
     environment:
       - USER=root
       - TZ=Europe/London
