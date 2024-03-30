@@ -5,6 +5,7 @@ services:
   plex-mount:
     #image: pknw1/pfs:final
     build: .
+    network_mode: bridge
     container_name: plex-mount
     user: 0:0
     restart: always
