@@ -11,7 +11,7 @@ services:
     restart: always
     privileged: true
     volumes:
-      - type: volume
+      - type: bind
         source: /mnt/RS
         target: /mnt
         read_only: true
