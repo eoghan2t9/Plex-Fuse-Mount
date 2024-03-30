@@ -27,3 +27,5 @@ services:
       - apparmor:unconfined
     devices:
       - /dev/fuse:/dev/fuse:rwm
+    volumes:
+      mydata:
