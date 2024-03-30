@@ -6,6 +6,7 @@ services:
     #image: pknw1/pfs:final
     build: .
     container_name: plex-mount
+    user: 0:0
     restart: always
     hostname: plex-mount
     privileged: true
