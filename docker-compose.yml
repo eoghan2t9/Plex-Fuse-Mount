@@ -11,10 +11,7 @@ services:
     restart: always
     privileged: true
     volumes:
-      - type: bind
-        source: /mnt/RS
-        target: /mnt
-        read_only: true
+      - /mnt/RS:/mnt:rshared
     environment:
       - USER=root
       - TZ=Europe/London
