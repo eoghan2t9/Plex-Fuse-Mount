@@ -1,7 +1,5 @@
-#version: '3'
-
+version: '3'
 services:
-
   plex-mount:
     #image: pknw1/pfs:final
     build: .
@@ -12,6 +10,7 @@ services:
     privileged: true
     volumes:
       - /mnt/RS:/mnt:rshared
+      - ./config.json:/app/config.json
     environment:
       - USER=root
       - TZ=Europe/London
